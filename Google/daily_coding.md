@@ -35,6 +35,12 @@ follow-up: 多种方法优化这道题的方法， 楼主先排序 （要求写�
 比如目标 'abc, att, bba, bc, abce', 然后我们对char stream call next， 出来的一些char 是 t, a, b, c, e, t.... 我们需要打印 abc, bc, abce 
 这题用字典树，比较麻烦的是需要在字典树里存多个指针，然后每次出来一个char，就写一个Loop来更新所有现有的指针就可以给了。. from: 1point3acres.com/bbs 
 
+
+date 5/10/2018
+
+date 5/11/2018
+
+followed by previous from date 5/9
 5. 话很少的白哥哥
 乐扣巴以无 
 这题我面试前一天看过一眼，因为当时是乐扣最新的一道hard，（其实一点不难），但前一天只是想了一下，没有练习码。不过面试官说出考题的时候还是很激动的，感觉比较胸有成竹了吧。
