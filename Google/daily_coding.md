@@ -10,3 +10,32 @@ link: http://www.1point3acres.com/bbs/thread-417522-1-1.html
 3. 一些人坐在椅子上，新来的人要坐在离两侧人尽量远的位置，然后要求在线算法。这是一道面经题，用heap维护剩余区间就可以了。然后在线其实是个follow up。
 真.follow up: 给你几个正方体，每个正方体上有些字母，要求check能否用这些正方体拼出一个指定的单词，每个正方体最多使用一次。这个题其实是二分图的完美匹配，背一个匈牙利算法的板子就完事了。面试官小姐姐说是bonus了，所以大家也不必刻意去准备。
 4. 第一题，一个二维01矩阵表示一个图，所有1都与第一行连通，也就是说从任何一个已有的1出发，一定可以到达第一行的一个1。然后现在删掉一个1，要求继续删掉所有不再与第一行连通的1，修改原数组。其实是有很多信息可以用的，但是直接裸写一个DFS好像就完事了，反正复杂度是O（mn），面试官说这样就OK，他不在乎复杂度。
+
+
+date 5/9/2018
+
+link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=400951&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+1.黑哥哥 
+input: 一些字符串words， 一个目标字符串， 要求返回words里 包含了所有目标字符串里的所有char 的词中最短的那个。
+eg:  words = [study, haha, stone, school, star, store]  target = "rts", 需要返回 的词是star, 因为star 包含了所有rts, 同时也是最短。 
+
+follow-up: 多种方法优化这道题的方法， 楼主先排序 （要求写出查找的平均时间复杂度）， 
+楼主还答了可以把words 存成 s: study, stone, school, star, stor; t : star, stone, store..... 这样的map, 好处是我们查找的时候只需要看target里出现过的char所对应的词，然后找并集，在目标字符串很小的情况下有可能会省很多时间。
+
+2.白姐姐 
+用preorder和postorder建树，这道题出来时我说好像没有inorder是做不出来的，然后聚了个例子，面试管说那就假设总是有left subtree的，然后楼主用recursion写了。完了分析时间复杂度，问怎么优化（hashmap 存一边postorder里的val 对应的Index）
+
+3. 白大哥
+类似乐扣伞就无 但不一样的是这个api不能存query, 不负责接收query,不负责发送，只是会每1秒让n个isAllowed（） 返回true. 这题我当场有点懵，我就说了那就写一个count和clear, 然后每秒清零count。但这样做会造成每秒前10个可以，会形成每秒一个峰值。面试官问可不可以有一个更平均的分布，我说那就每1/n秒返回一个true, 然后清零... (我知道这样做很笨，但当场没有想到更好的方法。面试官一直强调说不能存任何和query有关的东西（除了计数），只负责yes or no然后保证这个rate的正确性)，写完码答了怎么unit test
+
+4.  话很多的白姐姐
+这个姐姐是我面得最开心的一轮，她整个人很活波，一直笑，让我放松了很多。
+给一个char stream,  有next(), 和hasNext(), 两个API。 给一些字符串作为目标字符串。要求每当char stream里出现目标字符串任何一个词，就打印这个词。
+比如目标 'abc, att, bba, bc, abce', 然后我们对char stream call next， 出来的一些char 是 t, a, b, c, e, t.... 我们需要打印 abc, bc, abce 
+这题用字典树，比较麻烦的是需要在字典树里存多个指针，然后每次出来一个char，就写一个Loop来更新所有现有的指针就可以给了。. from: 1point3acres.com/bbs 
+
+5. 话很少的白哥哥
+乐扣巴以无 
+这题我面试前一天看过一眼，因为当时是乐扣最新的一道hard，（其实一点不难），但前一天只是想了一下，没有练习码。不过面试官说出考题的时候还是很激动的，感觉比较胸有成竹了吧。
+做完后写了三个unit test, 白哥看了时间，还有10多分钟，他让我写了两个javascript里的call back function 给他看一下，问了一下我平时遇到bug怎么debug之类的就聊完了。
