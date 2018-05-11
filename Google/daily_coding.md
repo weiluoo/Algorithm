@@ -33,16 +33,26 @@ follow-up: 多种方法优化这道题的方法， 楼主先排序 （要求写�
 这个姐姐是我面得最开心的一轮，她整个人很活波，一直笑，让我放松了很多。
 给一个char stream,  有next(), 和hasNext(), 两个API。 给一些字符串作为目标字符串。要求每当char stream里出现目标字符串任何一个词，就打印这个词。
 比如目标 'abc, att, bba, bc, abce', 然后我们对char stream call next， 出来的一些char 是 t, a, b, c, e, t.... 我们需要打印 abc, bc, abce 
-这题用字典树，比较麻烦的是需要在字典树里存多个指针，然后每次出来一个char，就写一个Loop来更新所有现有的指针就可以给了。. from: 1point3acres.com/bbs 
-
+这题用字典树，比较麻烦的是需要在字典树里存多个指针，然后每次出来一个char，就写一个Loop来更新所有现有的指针就可以给了
 
 date 5/10/2018
 
 date 5/11/2018
-
 followed by previous from date 5/9
+links: 
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=400951&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
 
-5. 话很少的白哥哥
-乐扣巴以无 
+http://www.1point3acres.com/bbs/thread-417522-1-1.html 
+
+1. 乐扣巴以无 
 这题我面试前一天看过一眼，因为当时是乐扣最新的一道hard，（其实一点不难），但前一天只是想了一下，没有练习码。不过面试官说出考题的时候还是很激动的，感觉比较胸有成竹了吧。
 做完后写了三个unit test, 白哥看了时间，还有10多分钟，他让我写了两个javascript里的call back function 给他看一下，问了一下我平时遇到bug怎么debug之类的就聊完了。
+
+2. reconstruct BST using sorted array. 这是LC的老题了吧，每次取中点然后递归。
+Follow up, 要求建一个complete BST, 就是说每行都得从左边开始填，填满才能有下一行。这个麻烦一点，我打了个表归纳了一下两侧应该有多少个数，写了个函数来计算当前数组应该给左边分配多少个数。
+
+3. 一个正则表达式，B*A*C*, 然后给满足这个RE的字符串统计A的个数。二分就可以了。
+
+4. 给你一个字符串和一个字典，要求你求字典里是给定字符串substring的最长字符串。O（n+\sum m）, 用waiting list处理。 面试小哥和我纠结了很久为什么BFS不好，说不出话。
+
+
