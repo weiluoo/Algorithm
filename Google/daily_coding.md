@@ -94,7 +94,7 @@ Mary    Google + Apple        CA
 
 第四轮，印度大哥
 这位大哥是个seti，就是干测试的，问的问题也很偏测试。
-这轮给了两道题，都不难，第一题是add two big numbers, 写完代码后关于 test case 问的很细致。。我一直说，他也一直不喊停。。我就说了很多很多不同情况的test case。。. more info on 1point3acres.com
+这轮给了两道题，都不难，第一题是add two big numbers, 写完代码后关于 test case 问的很细致。。我一直说，他也一直不喊停。。我就说了很多很多不同情况的test cases
 第二题是个dp，countSum（int sum, int k), 比如 countSum(5, 2), 就是2个数加起来等于5，数有多少种情况。
 我说dp，但我第一反应是一个 O(SUM*SUM*K)的dp，我一边说一边感觉自己肯定想复杂了，但他说“没关系，你之前做了一提了，这是第二题，三次方的复杂度我是可以接受的，请开始code”，但我觉得肯定有二次方的dp，我就说让我再想想，他说建议我把matrix画出来（其实就是在给我hint）。我画出来后就明白了这是个 o(sum*k)的dp，写完后他又问了我下如何测试。最后聊了聊天，结束了面试。。
 
