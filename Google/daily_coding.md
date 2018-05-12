@@ -55,4 +55,66 @@ Follow up, 要求建一个complete BST, 就是说每行都得从左边开始填�
 
 4. 给你一个字符串和一个字典，要求你求字典里是给定字符串substring的最长字符串。O（n+\sum m）, 用waiting list处理。 面试小哥和我纠结了很久为什么BFS不好，说不出话。
 
+5/12/2018
+link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=423481&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+今天的题感觉偏难 周末就…多看看吧 lol
 
+第一轮：印度小哥哥
+题目是，
+给了一个table,  会有很多colum，然后让写一个类似query的method。
+比如，这个table里会有“+”
+table：
+name,           compay,               address
+Lily+Mary      Google + Apple        CA
+那么这一行就equal to 以下这四行
+name,           compay,               address
+Lily             Google                     CA
+Mary            Google                   CA
+
+Lily             Apple                   CA
+Mary            Google               CA
+
+然后让你写一个query method， 
+比如 find ( name = Lily or Mary) AND (copany == Google)， 这个query有规则，每一个attribute内部只能用or链接， 不同attribute之间用and链
+对于以上这个query，要return下面两行。。
+Lily      Google + Apple        CA
+Mary    Google + Apple        CA
+
+于是楼主想到了之前做quantcast家oa时遇到过类似的题，，我就说可以用trietree做，建一个nested hashmap，再然后得到结果。 面试官好像没料到我会这么做，觉得是个interesting method，很感兴趣的样子，要我coding， 但坑爹的是，代码量太大了，我没写完。。。。期间，中间面试官质问我了一次觉得我的方法可能不够general，不好scale up，但在我解释完之后，他都说yes, you are right, this makes sense, this could scale up, continue.  但问题就是这样解决这个问题代码量确实有点大。。首先要parse这个table放进trietree，然后再parse这个query string，得到一个list<list<integer>>，内层是同一个colum下的or的关系的结果，外层是不同colum间and的结果，  然后再分析这个nested list。。代码量真的太大。。最后没写完，只写到了 nested list这里。。面试官打断我说时间不够了，让我口述后面的想法，然后就结束了这一轮。。我怀疑他原本的思想不是要用trie？
+
+第二轮，白人小哥哥
+给了两个很大的file， 第一个file 大概是500gb，里面是一篇文章，由很多word和空格组成。第二个file也很大，里面大概是5000个词，被空格分开，这些是要被隐蔽的词汇。
+然后需要一边读第一个file，一边处理它，遇到了要隐蔽的词就输出“***”，其余的词则正常显示。
+我依然说是可以用trie做。。把要隐蔽的词都放进trie里，然后读第一个file。。
+面试官让我写了下这个trie的class，我写了inset（string）方法，正准备写search（string）方法，面试官说不用写了，他相信我知道怎么写好这个class，要我move on 写别的部分。
+问题是处理file的那些api我不太记得了，，面试官也不太记得了，他现场查了api告诉我。。然后我再规定的时间写完了。让我问了问问题。结束时他说he likes my solution.
+
+第三轮，国人大哥
+这轮跪了，问了个很简单的问题，大概就是根据一些rules来truncate 一个很长的string到长度为k，我一开始给想复杂了，用了sort，comparator什么的，是O(nlogn). 让我想更快的方法。我就给了个 O(nlogk)的方法，又是用treemap，又是用deque的。。他说还是不够。。然后我才相处了O(N)的方法。但此时为了描述之前的方法花了太多时间（我讲的时候，他有点跟不上我的方法，于是我讲了很久）,此时大概只剩10min coding了，我勉强coding完，代码还不够简洁，他临走时还指出有部分我的代码太啰嗦。。。而且这个o（n）的方法其实相当简单，相当straightforward，我严重怀疑他其实有准备第二个问题问我。。只是我用太多时间了没来得及问我。。。这一轮感觉有点跪了。。
+
+第四轮，印度大哥
+这位大哥是个seti，就是干测试的，问的问题也很偏测试。
+这轮给了两道题，都不难，第一题是add two big numbers, 写完代码后关于 test case 问的很细致。。我一直说，他也一直不喊停。。我就说了很多很多不同情况的test case。。. more info on 1point3acres.com
+第二题是个dp，countSum（int sum, int k), 比如 countSum(5, 2), 就是2个数加起来等于5，数有多少种情况。
+我说dp，但我第一反应是一个 O(SUM*SUM*K)的dp，我一边说一边感觉自己肯定想复杂了，但他说“没关系，你之前做了一提了，这是第二题，三次方的复杂度我是可以接受的，请开始code”，但我觉得肯定有二次方的dp，我就说让我再想想，他说建议我把matrix画出来（其实就是在给我hint）。我画出来后就明白了这是个 o(sum*k)的dp，写完后他又问了我下如何测试。最后聊了聊天，结束了面试。。
+
+
+5/14/2018
+link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=424395&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+
+1.找文章里出现频率最高的十个连续单词对
+2.系统设计，分布式key value 系统，估算吞吐量没答好
+3.有一个二叉树，每个边上有值，怎样选择边cut，能够以最小代价cut 掉所有叶子节点。
+午饭的哥们没来，第三轮面试的哥们带我去吃饭，感觉吃饭时略显尴尬，估计有负面影响
+4.N个人给K个candidate 投票，N个人给出K个candidate的偏好排序，得到一个矩阵：例如4个人给3个人投票：
+[[1,2,3],
+[1, 3,2],
+[2,1,3],
+[3,1,3]].
+然后选择第一列，找出得票最少的candidate排除，然后得到新的矩阵，继续上述步骤，直到最后返回最后剩下的candidate，这题中间有个两个for循环搞糊涂了，卡壳了一阵，还有一个edge case被面试官指出，最后一个followup是，如果N很大，K很小怎么优化，额外给了5分钟没想出来。。。
+5.表达式求值，表达式有运算符*和+
+(+ 4 5) 得9
+(* 4 5)的20
+(+4(* 4 5))得24
+直接递归硬写出来了，followup是如果有if操作怎么办，这个哥们很严肃，我笑他不笑的感觉。
+第一个哥们我拍了他好多马屁，貌似很开心，第二个说了两次I am happy，不知道是不是真的happy，第三个followup挑战了一下复杂度，和他吃饭聊不是很开心，本人是个粗人，对方貌似挺斯文的，貌似不太喜欢吃饭时候聊天；第四个喜欢打断我，这一轮也是写的比较慢，而且有个比较严重的edge case没考虑了，被提示改了多次代码，最后的followup没答上，说留给我homework；第五个全程严肃，盯着我代码看了很久，说应该没问题
