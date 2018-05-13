@@ -51,7 +51,7 @@ http://www.1point3acres.com/bbs/thread-417522-1-1.html
 2. reconstruct BST using sorted array. 这是LC的老题了吧，每次取中点然后递归。
 Follow up, 要求建一个complete BST, 就是说每行都得从左边开始填，填满才能有下一行。这个麻烦一点，我打了个表归纳了一下两侧应该有多少个数，写了个函数来计算当前数组应该给左边分配多少个数。
 
-3. 一个正则表达式，B*A*C*, 然后给满足这个RE的字符串统计A的个数。二分就可以了。
+3. 一个正则表达式，B*  A*  C*, 然后给满足这个RE的字符串统计A的个数。二分就可以了。
 
 4. 给你一个字符串和一个字典，要求你求字典里是给定字符串substring的最长字符串。O（n+\sum m）, 用waiting list处理。 面试小哥和我纠结了很久为什么BFS不好，说不出话。
 
