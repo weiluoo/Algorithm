@@ -142,4 +142,19 @@ follow up, 往这个车队里加一辆车(所有可能的位置), 返回所有�
 follow up: 出现顺序不一定相同, 返回那个字母,
 follow up: 如果字符串特别大, 怎么办?
 
+5/16/2018
+link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425011&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+第一轮 感觉是白人小哥 没有口音
+上来先聊了一下简历里的一个项目 小哥似乎对GPU并行运算蛮感兴趣 简单聊了一下
+然后上题：LC444
+输入只有一个subsequence的list 假设可以reconstruct成唯一的original sequence 要求返回这个original sequence
+拓扑排序秒掉了 之后讨论了一下edge case 又问如果结果不唯一 如何判断 如何处理
+
+第二轮 国人小姐姐
+自我介绍之后直接做题 LC399
+听完题之后我说用DFS做 小姐姐说可以先构建出全部的available division 然后再返回query的结果 感觉像是把query list拿出来做成API
+我想了一下没想到好方法 就还是用DFS构建出全部division
+最后写完了 分析了一下复杂度 不过后来回想了一下小姐姐的意思应该是用Union Find做的 面试之后写了Thank you note有提到Union Find的解法:)
+
 
