@@ -1,9 +1,5 @@
 date: 5/8/2018
 
-
-testing
-
-
 link: http://www.1point3acres.com/bbs/thread-417522-1-1.html 
 1. Reverse polish notation evaluation, 逆波兰表示法求值，其实就是很常规的stack题，也保证了没有特殊情况，正常写。
 2. Check一个字符串能不能由另外一个字符串中的字符组成，其实就是弱化版的anagram，开个数组或者hashmap记一下数量就完事了。之后讨论了一些特殊情况，比如字符串太长不能放进memory之类的。
