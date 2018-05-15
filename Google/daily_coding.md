@@ -124,3 +124,26 @@ link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=424395&extra=
 直接递归硬写出来了，followup是如果有if操作怎么办，这个哥们很严肃，我笑他不笑的感觉。
 
 第一个哥们我拍了他好多马屁，貌似很开心，第二个说了两次I am happy，不知道是不是真的happy，第三个followup挑战了一下复杂度，和他吃饭聊不是很开心，本人是个粗人，对方貌似挺斯文的，貌似不太喜欢吃饭时候聊天；第四个喜欢打断我，这一轮也是写的比较慢，而且有个比较严重的edge case没考虑了，被提示改了多次代码，最后的followup没答上，说留给我homework；第五个全程严肃，盯着我代码看了很久，说应该没问题
+
+5/15/2018
+link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=423736&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3086%255D%255Bvalue%255D%3D8%26searchoption%255B3086%255D%255Btype%255D%3Dradio%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+
+第一轮: 印度大叔 人很好
+定义 n-straight 指连续的n个数字, 输入是一个integer array 和n , 要求返回array 满不满足 n-straight 的要求:
+eg 3-straight  [1,2,3,5,6,7]返回true, [1,2,3,4,5] 返回False
+follow up: 如果n-straight 指至少n个连续的数字, 应该怎么写函数. visit 1point3acres.com for more.
+-google 1point3acres
+第二轮 不知道哪里的大叔
+
+给一个integer array 表示不同符号的个数, 和输入n, 返回所有可能的n个符号的组合(不在乎顺序)
+follow up: 返回这些组合的个数, 优化时间空间复杂度
+
+第三轮 一个第一次当面试官的小哥. 
+给一个integer array, 表示每辆车在路上的速度, 假设他们都往同一个方向开, 开的快的会被开的慢的卡住,  问你最后整个路上的车, 会被分成几组 ,每组有几辆车.
+follow up, 往这个车队里加一辆车(所有可能的位置), 返回所有可能的下一步的结果
+
+第四轮, 两个字符串, 一个字符串比另一个多一个字母, 其余出现顺序相同,返回那个字母,
+follow up: 出现顺序不一定相同, 返回那个字母,
+follow up: 如果字符串特别大, 怎么办?
+
+
