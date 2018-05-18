@@ -44,6 +44,7 @@ public class BipartiteGraph {
   }
   
   public int find() {
+	sum = 0;  // clean history sum since sum is a member vairable
     for (int i = 0; i < map.length; i++) {
       // clear the used array for a new matching iteration 
       used = new boolean[map[0].length];
@@ -75,19 +76,32 @@ public class BipartiteGraph {
     return false;
   }    
   
+  public int getKM(int judge) {
+    if (judge == -1) {  // to get the min matching of bipartite graph
+	  for (int i = 0; i < map.length; i++) {
+	    for (int j = 0; j < map[0].length; j++) {
+		  map[i][j] = -1 * map[i][j]; // negate the weight -> find max match    
+	    }	  
+	  }
+	}
+	
+	// initialize lx and ly 
+	for (int i = 0; i < map.length; i++) {
+	  ly[i] = 0;
+      lx[i] = Integer.MIN_VALUE;
+      for (int j = 0; j < map[0].length; j++) {
+        if (map[i][j] > lx[i]) lx[i] = map[i][j]; 
+	  }	  
+	}
+	
+	// initialize nodes array
+	for (int i = 0; i < map[0].length; i++) {
+	  nodes[i] = -1;	
+	}
+	
+	
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  }
   
   
   
