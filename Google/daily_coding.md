@@ -163,8 +163,30 @@ link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425011&extra=
 将问题转化成二分图：一波是人 一波是自行车 
 然后每个人到所有自行车都能形成一条边 每条边有权重(距离) 然后求解最优匹配:使得边的权重和最小
 
+5/20/2018
+link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425692&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
 
+Onsite:
+1. 白人小哥
+汇率转换。应该是道面经题，但是我在地里没有找到。给定这样一个list：[[USD, 0.85, EURO], [EURO, 130, Yen]], 求任意两个货币之间的汇率。先用map和dfs做的，面试官问我这样做会有什么问题，我说stack会over flow，后来改成了union find。followup是如果想要query常用的几个货币之间的汇率应该怎么做。答曰用cache
 
+2. 白人小哥
+这轮面的不好。给一个int数组，return current element 到 next greater element 的距离。比如input 是[2, 1, 4, 700, 5]，return[2, 1, 1, -1, -1]。先用brute force 做的。后来改成了dp，dp的时候很多edge case都没考虑到，面试官提醒了很多次。面试结束之后搜到比较好的方法是stack。
 
+3. 国人大哥
+利口而欺凌，followup 是 k closest elements. 
+
+4.毛子大叔
+给一个2d boolean array代表empty seats。每次进来一个query寻找k个连续的empty seats。这k个seats必须是上下左右相邻的，并且seats 是randomly selected。我是keep了一个empty LinkedList，每次random一个index，找到这个index上的empty spot and run dfs，然后 recursively寻找它的上下左右spot。
+
+5/21/2018
+link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425526&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+第一轮： Find first missing number eg.  [2, 3, 5,6,8]; = > 4 follow up 是 find kth missing number.
+第二轮： 一个list和一个set 存不存在continues subarray contain所有set里的  数量也是一样。  然后也没问第二个问题 一直再给我不同test case做测试，然而面试管就是没找到bug.....搞的我好慌。。。
+第三轮： Find the number of identical subtree. 
+第四轮： sliding window 求mean 
+
+楼主是个本科的**- -。。。题目不难。但是follow up time 和space有点尴尬。有两个面试管喜欢精确的 还有一个就直接O（N）这样就好了。
 
 
