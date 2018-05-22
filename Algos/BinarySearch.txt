@@ -1,0 +1,15 @@
+二分法总结
+
+问题特点
+1.带有区间特征，因为我们要二分，那么二分必然有个范围，比如在排序数组里搜索target，那么这个区间就是这个排序数组的范围.但是有些题目的区间需要我们自己来找，比如LintCode的wood cut这题，区间是木头的长度，此区间为[1, 最长的木头长度]
+2.区间内的答案容易验证，因为二分出mid点以后，mid的判定是比较容易的，可以快速决定答案在左右区间的哪一侧
+3.区间内的答案验证是连续的，假设我们的验证返回时True和False，那么对于区间内的验证，一定是[True,True,True,.....True, False.....False,False] 或者 [False.....False,False,True,True,True,.....True] ,因为答案的连续性所以才能二分
+4.往往是求满足某些条件的最大值或者最小值
+
+reference notes：
+
+https://stomachache007.wordpress.com/2017/03/11/%E4%B9%9D%E7%AB%A0%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-2-binary-search/
+
+https://blog.csdn.net/luoshengkim/article/details/52103427
+
+https://blog.bcmeng.com/post/binarysearch.html
