@@ -127,10 +127,9 @@ link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=423736&extra=
 第一轮: 印度大叔 人很好
 定义 n-straight 指连续的n个数字, 输入是一个integer array 和n , 要求返回array 满不满足 n-straight 的要求:
 eg 3-straight  [1,2,3,5,6,7]返回true, [1,2,3,4,5] 返回False
-follow up: 如果n-straight 指至少n个连续的数字, 应该怎么写函数. visit 1point3acres.com for more.
--google 1point3acres
-第二轮 不知道哪里的大叔
+follow up: 如果n-straight 指至少n个连续的数字, 应该怎么写函数.
 
+第二轮 不知道哪里的大叔
 给一个integer array 表示不同符号的个数, 和输入n, 返回所有可能的n个符号的组合(不在乎顺序)
 follow up: 返回这些组合的个数, 优化时间空间复杂度
 
