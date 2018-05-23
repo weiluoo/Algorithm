@@ -188,4 +188,46 @@ link: http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425526&extra=
 
 楼主是个本科的**- -。。。题目不难。但是follow up time 和space有点尴尬。有两个面试管喜欢精确的 还有一个就直接O（N）这样就好了。
 
+5/22/2018 
+link: 
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425304&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
 
+第一轮是面经题，就是大家玩过宝石迷阵吗，没玩过的你玩一下就知道了，问题是你怎么样生成一个宝石迷阵的初始化的棋盘，意思就是你打开游戏的那一刻的整个棋盘的样子。
+
+第二轮基本和all anagrams一样，就是换了种说法。
+
+第三轮类似于蠡口刘武酒。
+
+第四轮类似于蠡口刘武饵。
+
+5/23/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425363&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+电面：abc面试官，第一题：给出一个int array，找出其中一个index使得index左边所有的数加起来等于index右边所有的数加起来（左右not inclusive）。时间复杂度要求O(n)，空间复杂度O(1)。第二题：给定两个string， 判断这两个string是否有且仅有两个字母调换了顺序，举例：abcd和acbd （b和c调换），affhsgn和afghsfn（f和g调换了）. 
+
+昂赛特：
+1. 白人女面试官，先是OOD，设计一个timer，可以设定总计时时长，然后每过一分钟就打印一次剩余的时间，直到计时结束。第二题：给若干个string，get k combination, 例子：{run，age，app, cat, dog}  k = 3, output:[{run, age, app}, {run, age, cat}, {run, age, dog}, {run, app, cat} ....]
+
+2. 利口上面可能有，但是我忘了题号，题目是：给一个chars的顺序，然后判断给定的char array里面的所有的chars之间是否满足这个顺序。举例：dict：[d, a, c, f, j]  满足顺序的chars: {d, a, f, f, j} 不满足顺序的chars：{a, c, c, d, j}或者{c, f, j, j, d, a}. 要求时间复杂度是O（n），n是chars的长度（假设chars的长度大于dict长度）。 第二题，利口 久留。
+
+3. 感觉像是俄罗斯面试官，面的很难。利口奇琪司的变形。station的坐标都是int，然后要求最后返回所有的station（包括原先的和加建的，然后所有的坐标都是int）。也就是说如果开始是[1，4，5]，加1个station，最后就是返回[1，2，4，5]或者[1，3，4， 5]。这里面的corner case handle起来还是挺多的，最好写一下。
+
+4. abc面试官，第一题：给定一个multiple tree，以及需要删除的多个nodes，要求返回一个node的list，以便在nodes被删除之后可以找到这些nodes的child。
+例子：
+                 a
+       /      /     \      \
+     b      d       c      f
+  /   \   \
+h     z   i 
+假如删除b和f，返回{a, d, c, h, z, i} 来源一亩.三分地论坛. 
+假如删除a和b，返回{d, c, f, h, z, i}
+可以用level traverse解。
+
+第二题：
+给定一个multiple tree，除了parent指向child，同一层的children：第一个child指向第二个，第二个指向第三个。。。以此类推，最后一个指向第一个，形成一个回路。
+求出最长的路径。楼主用的暴力破解法，用recursion全部过了一遍，找出最长的，面试官表示满意。
+
+加面：
+1. 烙印（我发现一般烙印出题都不会特别难，比较规矩），类似two sum，给出一个int array，找出两个int相加合最接近target 的sum。先sort，然后左右two pointers。写了很多test case，问了test的一些问题，例如在什么情况下，代码没有变化，但是有时test能过，有时候过不了（多线程干扰，dependency稳定性等等）。
+2. 利口 琪尔耳。写了很多test case。
