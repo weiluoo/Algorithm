@@ -220,7 +220,7 @@ http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425363&extra=page%3
      b      d       c      f
   /   \   \
 h     z   i 
-假如删除b和f，返回{a, d, c, h, z, i} 来源一亩.三分地论坛. 
+假如删除b和f，返回{a, d, c, h, z, i}
 假如删除a和b，返回{d, c, f, h, z, i}
 可以用level traverse解。
 
