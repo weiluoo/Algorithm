@@ -231,3 +231,65 @@ h     z   i
 加面：
 1. 烙印（我发现一般烙印出题都不会特别难，比较规矩），类似two sum，给出一个int array，找出两个int相加合最接近target 的sum。先sort，然后左右two pointers。写了很多test case，问了test的一些问题，例如在什么情况下，代码没有变化，但是有时test能过，有时候过不了（多线程干扰，dependency稳定性等等）。
 2. 利口 琪尔耳。写了很多test case。
+
+5/24/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=426676&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+1. 类似之前一个面经题。只不过不是从天花板吊起来，而是从地上堆起来的盒子。给定一个grid和目标盒子的位置，问去掉目标盒子之后，哪些盒子会动。
+例如：
+OXXX
+OOXO
+OOXO
+
+X是盒子，O是空气，相邻的盒子之间会有粘性。如果去掉第一行第三列的X，它左右相邻的两个会因为没有重力支持掉下来。
+
+
+2. 给定k，和一个二进制序列，判断该是否包含全部可能长度为k的序列。
+例如，11001包含了所有k=2的可能的二进制序列（00，01，10，11）。
+followup，不是判断，而是生成序列（里口原题）
+
+3. 里口原题，二叉树从右边看，求每层能看到的节点。
+还问了该题BFS，DFS实现的时间和空间复杂度
+
+4. 给定两个字符串list A, B，返回第二个list中的每个元素是否是第一个list中某个字符串的subsequence。
+比如['aggressive', 'abc'], ['agr']，返回[True]。
+followup，如果A很大，并且B的字符串长度不超过6，有没有更好的办法？（可以preprocessing）
+里口伞久尔
+
+5/25/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425410&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3086%255D%255Bvalue%255D%3D8%26searchoption%255B3086%255D%255Btype%255D%3Dradio%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+
+第一轮：时间比较早所以面试的三哥迟了一会儿，然后就把我带去了面试的小会议室，途中问了我些什么，但有口音且说话嘟囔。只能表示抱歉。            
+
+三哥一上来就来了道扫地机器人，还好是个高频题，不需要理解题意。因为之前准备了所以假装思索过后就开始写代码，每写两行三哥都要打断问我在干什么，顺带表示时间有限。还好最后写完了。（有点担心他是故意拖我，最后两分钟还要打断我让我详细解释一下刚才的两行在干嘛。）
+
+第二轮：白人小姐姐，TF(boy)(?)组的。也是话不多说直接就放题目了，不过这轮很简单。
+
+输出一颗树的 max level sum，不是二叉树。先让我定义 TreeNode 该怎么定义，顺带问问成员变量的访问权限。然后就用层序遍历秒了。然后接着问了问我会用什么样的 test case 来测试。
+第二道是查找一串值是不是在一列 interval 里，interval 没有重叠并且排好了序。我表示 binary search 就可以，然后让实现了一下，也是秒了。然后聊了聊 TensorFlow
+
+第三轮：白人小哥，问了简历的一个项目，然后上了道 DP
+
+一堆卡片从一头拿，可以拿一二三张，两人轮流拿，求最高得分。小哥直接表示有负数的情况。我刚吃了饭有点懵，推出了正数的情况但是卡在了含负数的情况。然后小哥说那就先不考虑负数吧。随后还给了点 hint，然后就写出来了。并且让我在一个例子上过了一遍，问了问用什么 case 来测。
+
+第四轮：中东大叔，说话带一点口音，并且很忙的样子，空闲期间一直在回邮件。
+
+自行车那题。见过题目所以整个思路没有问题，但是实现起来还是有些细节问题，大叔问了些在点上的问题，我就发现了几个不太对的地方，然后改了。这跟扫地机器人一样是高频题了，大家准备的时候一定要自己写一遍代码啊。
+
+
+5/28/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=400440&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+1. 在一堆兔子里给出两只，要求找兔子们的lowest common ancester，每只兔子有一个unique id和parents的list，兔子的辈分可能发生混乱。follow up是怎样降低复杂度。
+2. 利特口的 耳领舞，没有让写代码直接follow up，假设有一个class里面有很多string，输入一个string假设跟class中的任何一个string满足的话就返回true。
+    注意不是class中有一个string输入有多个string！做这题时非常struggle，最后想出解法都40分钟过去了，直接一点代码都没有写，五轮完后回顾还发现自己说的解法是错...
+3. 利特口的 迩珥灵，1，2，3三部分
+4. https://instant.1point3acres.com/thread/321726 第三轮
+   假设有有限的自行车和人的坐标，注意两点：
+   首先你并不知道boundry，并且如果人和车距离很远，这个图很稀疏的话，比如800米，以1为单位bfs或者dfs耗时非常长。
+   其次不能遇到最近的就assign。就是不能把离第一个人最近的自行车直接assign给第一个人，有可能第二个人离这辆自行车更近第二个人会先拿到自行车；也不能把离第一辆自行车最近的人直接assign给这个自行车，有可能别的自行车离这个人更近。
+   最后，这题的代码写着很烦，非常烦，请务必试着写下代码。这轮写完基础版本（不会有两个人距离一辆车的距离相等）已经用完了45分钟而且还有个小bug，于是没有follow up就结束了，求好运！
+5. 给一个stream，stream里是word，设计一个数据结构，两个API，addWord和getTopK，第二个api返回截止到当前出现次数最多的k个词，不限制内存，follow up是降低第二个api的复杂度。
