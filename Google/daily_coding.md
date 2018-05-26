@@ -293,3 +293,47 @@ http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=400440&extra=page%3
    其次不能遇到最近的就assign。就是不能把离第一个人最近的自行车直接assign给第一个人，有可能第二个人离这辆自行车更近第二个人会先拿到自行车；也不能把离第一辆自行车最近的人直接assign给这个自行车，有可能别的自行车离这个人更近。
    最后，这题的代码写着很烦，非常烦，请务必试着写下代码。这轮写完基础版本（不会有两个人距离一辆车的距离相等）已经用完了45分钟而且还有个小bug，于是没有follow up就结束了，求好运！
 5. 给一个stream，stream里是word，设计一个数据结构，两个API，addWord和getTopK，第二个api返回截止到当前出现次数最多的k个词，不限制内存，follow up是降低第二个api的复杂度。
+
+5/29/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425238&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3086%255D%255Bvalue%255D%3D8%26searchoption%255B3086%255D%255Btype%255D%3Dradio%26searchoption%255B3088%255D%255Bvalue%255D%3D1%26searchoption%255B3088%255D%255Btype%255D%3Dradio%26searchoption%255B3046%255D%255Bvalue%255D%3D1%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+
+1. 面经题，凳子上坐人的最大距离， follow up: 凳子上一开始没有人，然后一个一个往里面放，每次放的时候O(1)时间求放在哪里距离最大（数学问题 )
+2. 面经题，leetcode 399, unionfind O(1)check
+3. 给一个pattern, check true or false， 比如abbba->cdddc就是true,每个字母一种映射（两个hashmap), follow up: 一次check很多string, 比如给abbba,check一个字典里面所有跟他pattern相同的，返回一个List
+    编码， abbba->12221，然后check（这一轮我有点蠢，犯了一个bug）'
+4.给两个string，比如 lee和eel,找到一个最短的string,它的substring包含这两个stirng,比如 leel.(应该是KMP,然而忘了怎么写了，弄了个hashSet存一个string的所有prefix,跟另一个比较，O(n^2))
+  follow up: 给一堆string怎么办？（这轮血炸，一开始思路就错了，一直在想greedy的方法，实际上不是greedy的，dfs遍历就好。。最后画了个dfs树，没时间写代码了。。）
+总体来说题目不难，但是最后一轮思路错了，也没有hint..很僵硬
+
+5/30/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=319885&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3088%5D%5Bvalue%5D%3D1%26searchoption%5B3088%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+题目被楼主放在另一个google doc里：
+https://docs.google.com/document/d/136Y-wEjxOAw_plmucEUD4cGN9ylpGOpPLLhqllQxPuk/edit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
