@@ -313,27 +313,54 @@ http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=319885&extra=page%3
 题目被楼主放在另一个google doc里：
 https://docs.google.com/document/d/136Y-wEjxOAw_plmucEUD4cGN9ylpGOpPLLhqllQxPuk/edit
 
+5/31/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425189&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3087%5D%5Bvalue%5D%3D2%26searchoption%5B3087%5D%5Btype%5D%3Dradio%26searchoption%5B3088%5D%5Bvalue%5D%3D1%26searchoption%5B3088%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
 
+电面：
+Online top-k frequent word in a string stream
 
+昂赛：
+1. 国人小哥
+先问了一些java Collection的基础知识，然后让自己implement一个Set class，要求4个O（1）时间的API： add, contains, remove, getRandom. 挺简单的OOD，因为getRandom也要常熟时间，所以每次删除就把最后一个元素和被删除的swap就可以
 
+2. 印度姐姐
+面经题，找了半天利口好像没有，e.g. “hololo”可以encode为“banana”，就是两个string里的char需是一一对应的encoding关系，不能一对多也不能多对一，这轮卡了一下，开始用的一个Map+一个Set，面试官让不用Set怎么做，其实就是把两个string的role交换一下，然后followup问要是有millions of original string，给一个encoded string问能不能从millions of string里面一个encode来，说了MapReduce的做法，时间就到了
 
+3. 白人老爷爷
+两个很大的数字，用LinkedList表示， 比如3->2->1->0，然后要做乘法，输出也是LinkedList，就brute force模拟了手算的过程，分析了时间复杂度m*n
 
+4. 白人小哥
+先聊了一会儿web application的架构，然后开始做题，要写一个online的单位转换器，可以添加随时新的转换关系，e.g. 'USD' -> 'RMB' = 6.8, 'RMB' -> 'JPY' = 10之类的，然后也要支持query，难点在于转换关系可以传递也可以逆转，所以就用了hashmap存adjacent list，然后讨论了应该在每次添加新的关系的时候遍历并且compress path因为config应该没有query的call频繁，小哥表示同意，就开始写两个API，path compression就用DFS做了
 
+5. 国人小哥
+找binary tree的最长increasing path，root到children的，类似利口298，递归秒了，然后不用递归怎么做，BFS秒了，然后分析了runtime space requirement就是看recursion tree的depth
 
+6/1/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=425910&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3087%5D%5Bvalue%5D%3D2%26searchoption%5B3087%5D%5Btype%5D%3Dradio%26searchoption%5B3088%5D%5Bvalue%5D%3D1%26searchoption%5B3088%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
 
+昂赛五轮：
+第一轮，第一题类似daily temperature，第二题地里出现过的带时间戳expiration的hashmap以及删除expired的entry
 
+第二轮，moving puzzle，3x3的grid，放了随机打乱的1-8个数字，和一个empty，最小步数让它还原成1-8
 
+第三轮，list of job, 每个job包含id, required_cpu, priority, 告诉了total available cpu，返回optimal list of job, 讨论了好久好久怎么定义optimal
 
+第四轮，两个string，第一个能不能map成第二个，比如abc -> xyz(可以直接map）, ab -> ba （需要找中间临时变量，否则a->b以后，第一个string会变成bb，就不知道哪个b要变成a）题目有点绕，讨论了好久好久...
 
+第五轮，第一题给了一个int[], find kth frequently number，讲一下有些什么方法，选了一个让实现。第二题类似lru
 
+6/2/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=396926&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3087%5D%5Bvalue%5D%3D2%26searchoption%5B3087%5D%5Btype%5D%3Dradio%26searchoption%5B3088%5D%5Bvalue%5D%3D1%26searchoption%5B3088%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
 
+Round1: 美国小哥，题目是rate limiter, 就是每台机器有qps的上限, 怎么设置数据结构和class 去handle 不超过它的limit,先从qps属于小数字做起； follow up 是如果qps是很大很大的数字怎么弄；
 
+Round2: 美国大爷，估计应该五十多六十了，给的第一题是fix binary tree, 面经题，很快秒，然后又跟我讨论一个multithread的问题，how to generate global unique key in different computers and different thread in 1 computer, 由于lz是DE背景对这种基础知识反而掌握不够牢靠, 可能会挂这一轮；
 
+Round3: 依旧美国小哥， pipe game, 水从左上进，判断如果leak和out of bound就return false, 然后如果能从右下角出来就return true(原贴有画图)
 
+Round4: 国人小哥，题目是Map with expiration time , 就是实现 put(key, value, sec) 和 get(key), 如果get的是expired的就不返回值; follow up1 是memory enhancement, 怎么随时delete expired key-value pair; follow up2是 how to handle same key put 但是第一个key-value pair 没expire.
 
-
-
-
-
-
-
+Round5: 美国小哥，题:给一个binary tree 和一个ShouldbeRemoved(TreeNode) function, 要你删完node之后返回生成的list of trees, 我记得也是面经题；follow up 是如果换成BST + list of nodes need to be removed, 怎么才能优化时间复杂度
