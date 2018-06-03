@@ -24,9 +24,13 @@ https://www.cnblogs.com/nullzx/p/7499397.html
 AC自动机-算法详解
 https://blog.csdn.net/u013371163/article/details/60469534
 
-
+time complecity:
+假设有N个模式串，平均长度为L；输入的待对比串长度为M
+建立Trie树：O(N*L)
+建立fail指针：O(N*L)
+模式匹配：O(M*L) （注：之所以要乘以一个L，是因为在统计的时候需要顺着链回溯到root结点）
+所以总时间复杂度为:O((N+M)*L)
 */
-
 
   //处理英文类型的字符串,所以数组长度128
   private static final int ASCII = 128;
@@ -57,6 +61,7 @@ https://blog.csdn.net/u013371163/article/details/60469534
     buildFailPointers();
   }
 
+  //由目标字符串构建Trie树
   private void buildTrieTree() {
     for (String targetStr : target) {
       Node cur = root;
@@ -73,21 +78,25 @@ https://blog.csdn.net/u013371163/article/details/60469534
     }
   }
 
+  //给Trie树节点构建fail指针 本质上是KMP的next数组 算法:BFS
   private void buildFailPointers() {
     Queue<Node> queue = new LinkedList<>();
     queue.offer(root);
     while (!queue.isEmpty()) {
       Node cur = queue.poll();
+      //根节点的孩子fail指针均指向根节点
       if (cur == root) {
         for (Node x : root.table) {
           if (x != null) {
             x.fail = root;
+            //孩子节点入队
             queue.offer(x);
           }
         }
       } else {
         for (int i = 0; i < cur.table.length; i++) {
           if (cur.table[i] != null) {
+            //孩子节点入队
             queue.offer(cur.table[i]);
             Node curFail = cur.fail;
             while (curFail != null) {
@@ -109,6 +118,7 @@ https://blog.csdn.net/u013371163/article/details/60469534
     }
   }
 
+  //在文本中查找字符串
   public Map<String, List<Integer>> find(String text) {
     result = new HashMap<>();
     for (String str : target) {
@@ -126,12 +136,14 @@ https://blog.csdn.net/u013371163/article/details/60469534
           result.get(cur.str).add(idx-cur.str.length()+1);
         }
         /*
-        一个目标字符串的中间某部分字符串可能包含另一个目标字符串 e.g: his, is均在
-        target数组中.当his找到后,is也应该找到了
-        cur == his中的s, cur.fail == is中的s
+        一个目标字符串的中间某部分字符串可能包含另一个目标字符串 
+				e.g: http, ttp, tp均在target数组中.当http找到后,
+				ttp,tp也应该找到了.所以应该顺着fail指针一直往上检查.
         */
-        if (cur.fail != null && cur.fail.isWord()) {
-          result.get(cur.fail.str).add(idx-cur.fail.str.length()+1);
+        Node tmpFail = cur.fail;
+        while (tmpFail != null && tmpFail.isWord()) {
+          result.get(tmpFail.str).add(idx-tmpFail.str.length()+1);
+          tmpFail = tmpFail.fail;
         }
         idx++;
       } else {
@@ -146,6 +158,7 @@ https://blog.csdn.net/u013371163/article/details/60469534
   }
 
 
+
   public static void main(String[] args) {
     StringAlgos inst = new StringAlgos();
     List<String> target = new ArrayList<>();
@@ -158,7 +171,7 @@ https://blog.csdn.net/u013371163/article/details/60469534
     target.add("cde");
     target.add("cdfkcdf");
 
-    String text = "http";
+    String text = "httpbcabcdebcedfabcdefababkabhabk";
 
     inst.buildACAutomation(target);
     Map<String, List<Integer>> res = inst.find(text);
@@ -166,6 +179,7 @@ https://blog.csdn.net/u013371163/article/details/60469534
       System.out.println(entry.getKey() + " : " + entry.getValue());
     }
   }
+
 
 
 
