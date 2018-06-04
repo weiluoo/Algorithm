@@ -7,9 +7,15 @@
 4.往往是求满足某些条件的最大值或者最小值
 
 reference notes：
-
+九章二分lecture notes
 https://stomachache007.wordpress.com/2017/03/11/%E4%B9%9D%E7%AB%A0%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-2-binary-search/
 
+lintcode 二分题总结
 https://blog.csdn.net/luoshengkim/article/details/52103427
 
+二分法类型题总结
+http://www.cnblogs.com/grandyang/p/6854825.html
+
+二分法lintcode总结
 https://blog.bcmeng.com/post/binarysearch.html
+
