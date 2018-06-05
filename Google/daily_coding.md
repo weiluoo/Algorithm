@@ -364,3 +364,50 @@ Round3: 依旧美国小哥， pipe game, 水从左上进，判断如果leak和ou
 Round4: 国人小哥，题目是Map with expiration time , 就是实现 put(key, value, sec) 和 get(key), 如果get的是expired的就不返回值; follow up1 是memory enhancement, 怎么随时delete expired key-value pair; follow up2是 how to handle same key put 但是第一个key-value pair 没expire.
 
 Round5: 美国小哥，题:给一个binary tree 和一个ShouldbeRemoved(TreeNode) function, 要你删完node之后返回生成的list of trees, 我记得也是面经题；follow up 是如果换成BST + list of nodes need to be removed, 怎么才能优化时间复杂度
+
+6/4/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=428197&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3087%5D%5Bvalue%5D%3D2%26searchoption%5B3087%5D%5Btype%5D%3Dradio%26searchoption%5B3088%5D%5Bvalue%5D%3D1%26searchoption%5B3088%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+电面是设计一个dictionary，存key和value，value有time stamp，可能会expire，如果expire了返回空，follow up是怎么有效删除过期的key value pair
+onsite一共五轮
+1. 有一个曲线，曲线的形状是先递减再增加，找曲线的最低点，如果只考虑int怎么做，如果考虑double怎么做
+2. 一堆自行车和一些人在一个2D的matrix里，要每个人match到一辆自行车，人和自行车的距离越短越好
+3. 给了一堆log，log里有用户id，resource id以resource在某个起始时间和终止时间的使用量，比如用户abc在1到5秒钟使用了CPU的数量是2，用户abc在2到3秒使用的CPU数量是4，也就是一个用户对某个resource的使用在某个时间是可以叠加的，给定一个resource id，根据用户对这个resource的peak使用量，找到top k的用户。上面的例子中abc的CPU的peak使用量是2+4=6
+4. 两道题，第一个是给一个数组，找到三个数字, 他们相乘的乘积最大。 第二题是给一堆数组，数组中的每个数都是一对，只有一个是单独，同时相同的数字一定都是挨着的，找到单独的数字
+5. 给一堆排好序的non-overlapped interva，要插入一个数字，如果这个数字可以和某个interval的起始时间或者结束时间挨着，就要把这个数字merge到那个interval之中，如果不挨着，就把数字当成interval插入到那堆interval当中，比如给定的interval是[1,2], [4,5], [9,10], 插入7的话，结果是[1,2], [4,5], [7,7], [8, 9]，插入3的话，结果是[1,5], [9,10]
+
+6/5/2018
+link:
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=428592&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3087%5D%5Bvalue%5D%3D2%26searchoption%5B3087%5D%5Btype%5D%3Dradio%26searchoption%5B3088%5D%5Bvalue%5D%3D1%26searchoption%5B3088%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=337015&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3086%5D%5Bvalue%5D%3D8%26searchoption%5B3086%5D%5Btype%5D%3Dradio%26searchoption%5B3087%5D%5Bvalue%5D%3D2%26searchoption%5B3087%5D%5Btype%5D%3Dradio%26searchoption%5B3088%5D%5Bvalue%5D%3D1%26searchoption%5B3088%5D%5Btype%5D%3Dradio%26searchoption%5B3046%5D%5Bvalue%5D%3D1%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
+
+LC 150
+给一个二叉树，随机改变每个node的位置，新的树结构不变，要保证每个node跟以前的该位置node不一样，不能直接更换node的value。  
+       A                    C
+     /  \                  / \
+     B   C       ==>      D   B
+         \                     \
+          D                    A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

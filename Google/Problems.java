@@ -114,10 +114,19 @@ public class Problems {
   要求每当char stream里出现目标字符串任何一个词，就打印这个词。
   比如目标 'abc, att, bba, bc, abce', 然后我们对char stream call next， 
   出来的一些char 是 t, a, b, c, e, t.... 我们需要打印 abc, bc, abce
-  思路:AC自动机 Trie+KMP 代码见Algos路径下的StringAlgos 构造处出自动机即可 没别的…
+  
+	思路:AC自动机 Trie+KMP 代码见Algos路径下的StringAlgos 构造处出自动机即可 没别的…
   */  
 
-    
+  
+
+
+
+
+
+
+
+  
   public static void main(String[] args) {
     Problems inst = new Problems();
 
