@@ -23,14 +23,25 @@ https://blog.csdn.net/kalilili/article/details/43014623
 
 public class UnionFind {
 
-  private int[] father;  // father[x]表示x的父节点
+   private int[] father;  // father[x]表示x的父节点
   private int[] rankArr; // rank[x]表示x的秩
-  
+
+
+  public void initSets(int n) {
+    father = new int[n];
+    rankArr = new int[n];
+    for (int i = 0; i < n; i++) {
+      father[i] = i;
+      rankArr[i]= 0;
+    }
+  }
+
   /*
   返回x的祖先
   回溯的过程中应用路径压缩 从x往上找祖先的所有点,
   回溯的时候都指向最高级祖先
-   */
+  注意:回溯的过程中,子树的秩会变化.但是我们不在find中改变秩.约定只有在union的时候改变.
+ */
   public int find(int x) {
     if (father[x] != x) {
       father[x] = find(father[x]);
@@ -39,21 +50,23 @@ public class UnionFind {
   }
 
   /*
-  将x和y合并到一个集合中
-   */
+  将x和y合并到一个集合中,按秩合并
+  用秩来表示树高度的上界 在合并时，总是将具有较小秩的树根指向具有较大秩的树根。
+  就是总是将比较矮的树作为子树，添加到较高的树中。为了保存秩，需要额外使用一个与
+  father[]同长度的数组，并将所有元素都初始化为 0 这样找祖先会减少递归迭代的次数，最坏只有logN次
+  */
   public void union(int x, int y) {
     // x,y祖先不同的时候,将y整个一支挂到x祖先下面
     if (find(x) != find(y)) {
-      father[y] = find(x);
+      if (rankArr[x] > rankArr[y]) {
+        father[y] = find(x);
+      } else {
+        father[x] = find(y);
+        if (rankArr[x] == rankArr[y]) rankArr[y]++;
+      }
     }
   }
   
-
-  public static void main(String[] args) {
-
-  
-  }
-
 }
 
 
