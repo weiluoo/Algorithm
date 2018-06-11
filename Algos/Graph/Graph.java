@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Graph {
   
-  private static class Node {
+  public static class Node {
     public Object val;
     public int pathIn = 0;
     public Node(Object val) {
@@ -19,7 +19,6 @@ public class Graph {
     adj = new HashMap<>();
   }
   
-  // used for directed graphs: start -> end
   public void addNodes(Node start, Node end) {
     if (!nodes.contains(start)) {
       nodes.add(start);
@@ -29,6 +28,7 @@ public class Graph {
     }
   
     adj.putIfAbsent(start, new HashSet<>());
+    adj.putIfAbsent(end, new HashSet<>());
     if (!adj.get(start).contains(end)) {
       adj.get(start).add(end);
       end.pathIn++;
