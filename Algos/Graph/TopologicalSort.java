@@ -59,16 +59,24 @@ public class TopologicalSort {
     return true;
   }
   
+  /*
+  深搜 过程中完成两个目标:
+  1.判断是否有环 2.把经过节点按照dfs postoder存起来
+  使用两个set作为标记数组记录经过的点. isLoop用来判断是否有环,每次进入递归之前标记. 
+  isLoop == true 说明在深搜的过程中又一次访问到该点,并不是回溯的过程 -> 有环  
+  visited用来判断回溯的过程中经过了的节点,在递归之后标记. visited == true 证明在回溯的路上
+  访问过这个点 -> 不是因为环 
+  */
   private boolean dfs(Graph di, Node curr, Set<Node> isLoop,
                       Set<Node> visited, Stack<Node> stack) {
     if (visited.contains(curr)) return true;
     if (isLoop.contains(curr)) return false;
-    isLoop.add(curr);
+    isLoop.add(curr);  //递归前标记
     for (Node neibor : di.adj.get(curr)) {
       if (!dfs(di, neibor, isLoop, visited, stack)) return false;
     }
-    visited.add(curr);
-    stack.push(curr);
+    visited.add(curr); //递归后标记
+    stack.push(curr);  //dfs postorder
     return true;
   }
   
