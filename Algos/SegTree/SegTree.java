@@ -77,8 +77,6 @@ public class SegTree {
     return root;
   }
 
-
-
   //[lo,hi]区间查询最小值
   public int queryMin(Node root, int lo, int hi) {
     if (lo > root.right || hi < root.left) return Integer.MAX_VALUE;
@@ -95,6 +93,21 @@ public class SegTree {
     int leftMin = queryMin(root.leftChild, lo, hi);
     int rightMin = queryMin(root.rightChild, lo, hi);
     return Math.min(leftMin, rightMin);
+  }
+
+  public int querySum(Node root, int lo, int hi) {
+    if (lo > root.right || hi < root.left) return 0;
+    if (lo <= root.left && hi >= root.right) {
+      return root.val;
+    }
+    if (root.lazyTag != 0) {
+      passLazyTag(root.leftChild, root.lazyTag);
+      passLazyTag(root.rightChild, root.lazyTag);
+      root.lazyTag = 0;
+    }
+    int leftSum = querySum(root.leftChild, lo, hi);
+    int rightSum = querySum(root.rightChild, lo, hi);
+    return leftSum + rightSum;
   }
 
   //单点更新 分治思想 回溯时调整父节点的值
@@ -134,6 +147,31 @@ public class SegTree {
     root.val = Math.min(root.leftChild.val, root.rightChild.val);
   }
 
+  //[lo, hi]区间更新 所有值加上val
+  public void updateSum(Node root, int lo, int hi, int val) {
+    if (lo > root.right || hi < root.left) return;
+    if (lo <= root.left && hi >= root.right) {
+      int len = root.right - root.left + 1;
+      root.val += len * val;
+      root.lazyTag += val;
+      return;
+    }
+    if (root.lazyTag != 0) {
+      passLazyTag(root.leftChild, root.lazyTag);
+      passLazyTag(root.rightChild, root.lazyTag);
+      root.lazyTag = 0;
+    }
+    updateSum(root.leftChild, lo, hi, val);
+    updateSum(root.rightChild, lo, hi, val);
+    root.val = root.leftChild.val + root.rightChild.val;
+  }
+
+  private void passLazyTag(Node root, int lazyTag) {
+    int len = root.right - root.left + 1;
+    root.val += len * lazyTag;
+    root.lazyTag += lazyTag;
+  }
+
 
   public static void main(String[] args) {
     int[] nums = {5,3,6,1,-7,3,2};
@@ -141,7 +179,7 @@ public class SegTree {
     SegTree st = new SegTree();
     st.buildMin(nums1);
     // System.out.println(st.queryMin(st.root, 1, 5));
-    st.updateMin(st.root, 0, 4, 4);
-    System.out.println(st.queryMin(st.root, 1, 4));
+    st.updateSum(st.root, 0, 4, 2);
+    System.out.println(st.querySum(st.root, 1, 4));
   }
 }
