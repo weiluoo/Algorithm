@@ -83,12 +83,9 @@ public class SegTree {
   public int queryMin(Node root, int lo, int hi) {
     if (lo > root.right || hi < root.left) return Integer.MAX_VALUE;
     if (lo <= root.left && hi >= root.right) {
-      System.out.println("l == " + root.left + " r == " + root.right + " val == " + root.val);
       return root.val;
     }
-    System.out.println("recursion l " + root.left + " r " + root.right);
     if (root.lazyTag != 0) {
-      System.out.println("lazytag " + root.lazyTag);
       root.leftChild.lazyTag += root.lazyTag;
       root.rightChild.lazyTag += root.lazyTag;
       root.leftChild.val += root.lazyTag;
@@ -122,7 +119,6 @@ public class SegTree {
     if (lo <= root.left && hi >= root.right) {
       root.val += val;
       root.lazyTag += val;
-      // System.out.println("left == " + root.left + " right == " + root.right + " val == " + root.val);
       return;
     }
     //pass down lazy tag
