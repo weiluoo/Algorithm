@@ -21,12 +21,14 @@ public class SegTree {
   public class Node {
     int left, right; //左右区间的值
     int val; //区间上的目标值(最大,最小等)
+    int lazyTag; //懒惰标签
     Node leftChild, rightChild;
 
     public Node(int left, int right, int val) {
       this.left = left;
       this.right = right;
       this.val = val;
+      this.lazyTag = 0;
     }
   }
 
@@ -35,6 +37,24 @@ public class SegTree {
   //根据输入数组建立线段树
   public void buildMin(int[] nums) {
     root = buildMin(nums, 0, nums.length - 1);
+  }
+
+  public void buildSum(int[] nums) {
+    root = buildSum(nums, 0, nums.length -1 );
+  }
+
+  private Node buildSum(int[] nums, int lo, int hi) {
+    if (hi < lo) return null;
+    if (hi == lo) {
+      Node root = new Node(lo, hi, nums[lo]);
+      return root;
+    }
+    int mid = lo + (hi - lo) / 2;
+    Node leftNode = buildSum(nums, lo, mid);
+    Node rightNode = buildSum(nums, mid+1, hi);
+    root.leftChild = leftNode;
+    root.rightChild = rightNode;
+    return root;
   }
 
   private Node buildMin(int[] nums, int lo, int hi) {
@@ -57,24 +77,75 @@ public class SegTree {
     return root;
   }
 
+
+
+  //[lo,hi]区间查询最小值
   public int queryMin(Node root, int lo, int hi) {
     if (lo > root.right || hi < root.left) return Integer.MAX_VALUE;
-    if (lo <= root.left && hi >= root.right) return root.val;
+    if (lo <= root.left && hi >= root.right) {
+      System.out.println("l == " + root.left + " r == " + root.right + " val == " + root.val);
+      return root.val;
+    }
+    System.out.println("recursion l " + root.left + " r " + root.right);
+    if (root.lazyTag != 0) {
+      System.out.println("lazytag " + root.lazyTag);
+      root.leftChild.lazyTag += root.lazyTag;
+      root.rightChild.lazyTag += root.lazyTag;
+      root.leftChild.val += root.lazyTag;
+      root.rightChild.val += root.lazyTag;
+      root.lazyTag = 0;
+    }
     int leftMin = queryMin(root.leftChild, lo, hi);
     int rightMin = queryMin(root.rightChild, lo, hi);
     return Math.min(leftMin, rightMin);
   }
 
-  public void updateMin(int[] nums, int idx, int val) {
-    if (idx < 0 || idx >= nums.length) return;
+  //单点更新 分治思想 回溯时调整父节点的值
+  public void updateMin(Node root, int idx, int val) {
+    if (idx < root.left || idx >= root.right) return;
+    if (idx == root.left || idx == root.right) {
+      root.val = val;
+      return;
+    }
+    int mid = root.left + (root.right - root.left) / 2;
+    if (idx >= root.left && idx <= mid) {
+      updateMin(root.leftChild, idx, val);
+    } else {
+      updateMin(root.rightChild, idx, val);
+    }
+    root.val = Math.min(root.leftChild.val, root.rightChild.val);
+  }
 
+  //区间更新 [lo,hi]区间的值都加上val
+  public void updateMin(Node root, int lo, int hi, int val) {
+    if (lo > root.right || hi < root.left) return;
+    if (lo <= root.left && hi >= root.right) {
+      root.val += val;
+      root.lazyTag += val;
+      // System.out.println("left == " + root.left + " right == " + root.right + " val == " + root.val);
+      return;
+    }
+    //pass down lazy tag
+    if (root.lazyTag != 0) {
+      root.leftChild.val += root.lazyTag;
+      root.rightChild.val += root.lazyTag;
+      root.leftChild.lazyTag += root.lazyTag;
+      root.rightChild.lazyTag += root.lazyTag;
+      root.lazyTag = 0;
+    }
+    updateMin(root.leftChild, lo, hi, val);
+    updateMin(root.rightChild, lo, hi, val);
+    root.val = Math.min(root.leftChild.val, root.rightChild.val);
   }
 
 
   public static void main(String[] args) {
     int[] nums = {5,3,6,1,-7,3,2};
+    int[] nums1 = {0,0,0,0,0,0};
     SegTree st = new SegTree();
-    st.buildMin(nums);
-    System.out.println(st.queryMin(st.root, 1, 5));
+    st.buildMin(nums1);
+    // System.out.println(st.queryMin(st.root, 1, 5));
+    st.updateMin(st.root, 0, 4, 4);
+    System.out.println(st.queryMin(st.root, 1, 4));
   }
 }
