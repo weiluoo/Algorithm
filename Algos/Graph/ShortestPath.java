@@ -8,6 +8,10 @@ https://blog.csdn.net/v_JULY_v/article/details/6096981
 
 2.Bellman-Ford
 原理是动态规划 适应一般的情况（即存在负权边的情况） O(V*E)
+http://threezj.com/2016/05/02/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/
+http://www.cnblogs.com/gaochundong/p/bellman_ford_algorithm.html
+https://zhuanlan.zhihu.com/p/36295603
+
 
 3.Floyd-Warshall
 解决任意两点间的最短路径的一种算法 可以正确处理有向图或负权的最短路径问题
