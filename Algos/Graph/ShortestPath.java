@@ -1,5 +1,6 @@
 /*
 最短路算法
+
 1.Dijkstra
 原理是贪心算法 保证每一步都是最短 不能处理带有负权值的图 O(E*lgV) using TreeSet
 http://www.wayne.ink/2018/02/06/Algorithm/Dijkstra/
@@ -14,6 +15,9 @@ https://zhuanlan.zhihu.com/p/36295603
 
 3.Floyd-Warshall
 解决任意两点间的最短路径的一种算法 可以正确处理有向图或负权的最短路径问题
+https://www.cnblogs.com/skywang12345/p/3711532.html
+https://blog.csdn.net/ljhandlwt/article/details/52096932
+http://www.it610.com/article/2136313.htm
 
 
 几个最短路径算法的比较
@@ -35,6 +39,12 @@ public class ShortestPath {
   private int[] prevBF;
   private int[] distBF;
   private Map<Integer, Map<Integer, Integer>> weightedGBF;
+
+  //start Floyd fields
+  private int[][] distFloyd;
+  private int[][] path;
+  //end Floyd fields
+
 
   // start Dijkstra methods
   public void initDijkstra(int n, Map<Integer, Map<Integer, Integer>> weightedG) {
@@ -128,7 +138,38 @@ public class ShortestPath {
   }
   //end Bellman-Ford methods
 
+  //start Floyd methods
+  public void initFloyd(int[][] distFloyd) {
+    this.distFloyd = distFloyd;
+    int num = distFloyd.length;
+    path = new int[num][num];
+    for (int i = 0; i < num; i++) {
+      for (int j = 0; j < num; j++) {
+        path[i][j] = j;
+      }
+    }
+  }
 
+  public void findPathsFloyd() {
+    int vNum = distFloyd.length;
+    //注意三重循环的嵌套顺序.一定是k在最外层,(i,j)在内层
+    for (int k = 0; k < vNum; k++) {
+      for (int i = 0; i < vNum; i++) {
+        for (int j = 0; j < vNum; j++) {
+          if (distFloyd[i][k] == Integer.MAX_VALUE || distFloyd[i][k] == Integer.MAX_VALUE) {
+            continue;
+          }
+          int tmpDist = distFloyd[i][k] + distFloyd[k][j];
+          if (tmpDist < distFloyd[i][j]) {
+            distFloyd[i][j] = tmpDist;
+            //i->j最短路径经过k
+            path[i][j] = path[i][k];
+          }
+        }
+      }
+    }
+  }
+  //end Floyd methods
 
 
   public static void main(String[] args) {
@@ -148,5 +189,4 @@ public class ShortestPath {
     boolean negCycle = sp.hasNegativeCycle();
     System.out.println(sp.distBF[5] +  " " + negCycle);
   }
-
 }
