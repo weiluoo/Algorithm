@@ -11,8 +11,13 @@
 
 /*
 backtracking
-为什么不需要循环? -> 每个数字都要用上 不需要跳过某些数字 
+为什么不需要循环? -> 每个数字都要用上,不需要跳过某些数字. 
+对当前数字cur，每次有三种选择： cur,cur+,cur-,即什么都不加，加号，减号.对应三种不同的递归
 
+得到表达式之后，对表达式求值需要用到javascript的API
+
+followup：如果要求支持除法的话，engine.eval()结果可能出现double类型 需要多做一步判断
+engine.eval()返回类型为Object，需要强制类型转换成需要的类型
 */
  
 import javax.script.ScriptEngineManager;
